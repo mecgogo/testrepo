@@ -17,15 +17,15 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello stg'
+                echo 'Hello '
             }
         }
     }
     post {
         always {
             script {
-                manager.addShortText("${env}")
-                manager.addShortText("${branch}")
+                manager.addShortText(env)
+                manager.addShortText(branch)
             }
         }
     }
