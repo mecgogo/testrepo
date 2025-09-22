@@ -1,8 +1,5 @@
-
-
-pipeline {
-    agent any
-parameters { 
+properties({
+    parameters([
         choice(
             name: 'env', 
             choices: ['stg', 'prd'], 
@@ -11,7 +8,12 @@ parameters {
             name: 'branch', 
             choices: ['main', 'feature'], 
             description: '') 
-    }
+    ])
+])
+
+pipeline {
+    agent any
+
     stages {
         stage('Hello') {
             steps {
