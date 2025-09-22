@@ -3,7 +3,7 @@ properties({
         choice(
             name: 'env', 
             choices: ['stg', 'prd'], 
-            description: '') 
+            description: '') ,
         choice(
             name: 'branch', 
             choices: ['main', 'feature'], 
