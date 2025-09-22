@@ -17,12 +17,14 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello stg'
+                echo "Hello ${env}"
             }
         }
     }
     post {
         always {
+            cleanWs()
+
             script {
                 manager.addShortText("${env}", "black", "lightblue", "1px", "lightgray")
                 manager.addShortText("${branch}", "black", "lightblue", "1px", "lightgray")
