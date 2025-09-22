@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters { 
         choice(
-            name: 'CHOICES', 
+            name: 'env', 
             choices: ['dev', 'stg', 'prd'], 
             description: '') 
     }
