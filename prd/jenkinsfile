@@ -1,19 +1,33 @@
-pipeline {
-    agent any
-    parameters { 
+properties([
+    parameters([
         choice(
-            name: 'env', 
-            choices: ['stg', 'prd'], 
-            description: '') 
+            name: 'ENV', 
+            choices: 'stg\nprd', 
+            description: ''),
         choice(
             name: 'branch', 
-            choices: ['main', 'feature'], 
+            choices: 'main\nfeature', 
             description: '') 
-    }
+    ])
+])
+
+pipeline {
+    agent any
+
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello prd'
+                echo "Hello ${ENV}"
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+
+            script {
+                manager.addShortText("${ENV}", "black", "lightblue", "1px", "lightgray")
+                manager.addShortText("${branch}", "black", "lightblue", "1px", "lightgray")
             }
         }
     }
