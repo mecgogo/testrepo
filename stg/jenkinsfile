@@ -1,6 +1,4 @@
-pipeline {
-    agent any
-    parameters { 
+parameters { 
         choice(
             name: 'env', 
             choices: ['stg', 'prd'], 
@@ -10,6 +8,10 @@ pipeline {
             choices: ['main', 'feature'], 
             description: '') 
     }
+
+pipeline {
+    agent any
+
     stages {
         stage('Hello') {
             steps {
