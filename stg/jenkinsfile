@@ -23,7 +23,6 @@ pipeline {
     }
     post {
         always {
-            cleanWs()
             script {
                 manager.addShortText("${env}")
                 manager.addShortText("${branch}")
