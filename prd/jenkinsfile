@@ -5,6 +5,10 @@ pipeline {
             name: 'env', 
             choices: ['stg', 'prd'], 
             description: '') 
+        choice(
+            name: 'branch', 
+            choices: ['main', 'feature'], 
+            description: '') 
     }
     stages {
         stage('Hello') {
