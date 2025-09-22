@@ -2,11 +2,11 @@ properties([
     parameters([
         choice(
             name: 'env', 
-            choices: ['stg","prd'], 
+            choices: ["stg","prd"], 
             description: '') ,
         choice(
             name: 'branch', 
-            choices: ['main","feature'], 
+            choices: ["main","feature"], 
             description: '') 
     ])
 ])
