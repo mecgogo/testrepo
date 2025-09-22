@@ -24,8 +24,8 @@ pipeline {
     post {
         always {
             script {
-                manager.addShortText("${env}")
-                manager.addShortText("${branch}")
+                manager.addShortText("${env}". "black", "lightblue", "1px", "lightgray")
+                manager.addShortText("${branch}". "black", "lightblue", "1px", "lightgray")
             }
         }
     }
