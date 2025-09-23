@@ -26,7 +26,7 @@ pipeline {
             cleanWs()
 
             script {
-                def matcher = manager.getLogMatcher(".*Total time: (.*)\$")
+                def matcher = manager.getLogMatcher(".*Started by user (.*)\$")
                 if(matcher?.matches()) {
                     manager.addShortText(matcher.group(1), "grey", "white", "0px", "white")
                 }
