@@ -26,6 +26,10 @@ pipeline {
             cleanWs()
 
             script {
+                def matcher = manager.getLogMatcher(".*Total time: (.*)\$")
+                if(matcher?.matches()) {
+                    manager.addShortText(matcher.group(1), "grey", "white", "0px", "white")
+                }
                 manager.addShortText("${ENV}", "black", "lightblue", "1px", "lightgray")
                 manager.addShortText("${branch}", "black", "lightblue", "1px", "lightgray")
             }
